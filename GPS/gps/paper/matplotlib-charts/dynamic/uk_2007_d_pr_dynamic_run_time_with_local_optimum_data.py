@@ -1,0 +1,15 @@
+pdfPageName = "dynamic/uk_2007_d_pr_dynamic_run_time_with_local_optimum.pdf"
+#figAxes = (0.0, 0.0, 0.85, 0.85)
+figSize = (8, 5)
+yLabel = 'Run Time (minutes)'
+xLabel = 'Number of PageRank Iterations'
+yValueGroups = [(30.3, 60.7, 75.9, 83.5, 91.1, 121.6, 152.0), (36.0, 63.0, 76.5, 83.2, 90.0, 117.0, 144.0)]
+yLim = 185
+yTicksFrequency  = 20
+groupLabels = ['20', '40', '50', '55', '60', '80', '100']
+rotateXticks = False
+barWidth = 0.46
+legendLabels = ('No repartitioning', 'Repartitioning')
+integerBarLabels = True
+barLabelsRotation = '30'
+legendAnchor = (0.3, 0.8)

@@ -1,0 +1,15 @@
+pdfPageName = "dynamic/uk_2007_d_pr_dynamic_network_io_with_local_optimum.pdf"
+#figAxes = (0.0, 0.0, 0.85, 0.85)
+figSize = (8, 5)
+yLabel = 'Network IO (GB)'
+xLabel = 'Number of PageRank Iterations'
+yValueGroups = [(121, 161, 201, 363, 806, 1209), (123, 161, 196, 306, 531, 729)]
+yLim = 1500
+yTicksFrequency  = 150
+groupLabels = ['3', '4', '5', '10', '20', '30']
+rotateXticks = False
+barWidth = 0.46
+legendLabels = ('No repartitioning', 'Repartitioning')
+integerBarLabels = True
+barLabelsRotation = '30'
+legendAnchor = (0.3, 0.8)

@@ -1,0 +1,19 @@
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 8 random /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 8 balanced /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 8 cluster /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 16 random /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 16 balanced /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 16 cluster /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 32 random /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 32 balanced /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 32 cluster /Users/semihsalihoglu/projects/pregel/data/email-EuAll.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 8 random /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 8 balanced /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 8 cluster /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 16 random /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 16 balanced /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 16 cluster /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 32 random /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 32 balanced /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+java -Xss1G -Xmx1500M -Xms1500M PregelSimulator 32 cluster /Users/semihsalihoglu/projects/pregel/data/web-NotreDame.txt /Users/semihsalihoglu/projects/pregel/output/simulation_results/ 1 pagerank
+

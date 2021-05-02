@@ -1,0 +1,4 @@
+# Network I/Os for different tau values for large-vertex-partitioning 
+# of the twitter graph.
+no-lvp  -------  tau=100K  ----     tau=10K    ----      tau=1K      ---      tau=500   ---      tau=250    ----
+15.9   (0.000%)    13.2    (0.001%)  11.7      (0.015%)    8.3       (0.35%)  7.2       (0.72%)   6.1       (1.37%)

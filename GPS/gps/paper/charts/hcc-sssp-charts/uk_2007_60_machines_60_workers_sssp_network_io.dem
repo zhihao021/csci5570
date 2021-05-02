@@ -1,0 +1,18 @@
+# set title "50 iterations PageRank on 60 workers on 60 compute nodes"
+reset
+cd '/Users/semihsalihoglu/Desktop/research/databases/gps/paper/charts/hcc-sssp-charts'
+unset xtic
+set ytic 5
+set style data histogram
+set style histogram cluster gap 1
+set style fill solid border -1
+set ylabel "Network I/O over all supersteps (in GB)
+set size ratio 1.2
+set yrange [0:52]
+#set terminal x11
+yoffset=0.03
+set terminal postscript eps color size 4,5
+set output 'uk_2007_60_machines_60_workers_sssp_network_io.eps'
+
+plot 'uk_2007_60_machines_60_workers_sssp_network_io.dat' using 1 title col, '' using 0:1:2 with labels center offset first -1.15,graph yoffset notitle,  '' using 3 title col, '' using 0:3:4 with labels center offset first -0.85,graph yoffset notitle
+

@@ -1,0 +1,148 @@
+\section{Compiling Green-Marl into GPS}
+\label{sec:green-marl}
+
+\begin{figure}[!t]
+\begin{lstlisting}
+Procedure PageRank(G: Graph, e,d: Double, 
+  PR: Node_Prop<Double>(G)) {
+  Int i = 0;
+  Double N = G.NumNodes();
+  G.PR = 1 / N; // Init PageRank #\label{code:pr:1}#
+  Do { // Main iteration         #\label{code:pr:2}#
+    diff = 0.0;
+    Foreach (t: G.Nodes) {       #\label{code:pr:3}#
+      Double val = (1-d) / N + d*Sum(w: t.InNbrs){ #\label{code:pr:4}#
+          w.PR / w.OutDegree()}; #\label{code:pr:5}#
+      t.PR <= val @ t;           #\label{code:pr:6}#
+      diff += | val - t.PR |; }  #\label{code:pr:7}#
+    i++;
+} While (i < 30); } #\label{code:pr:8}#
+\end{lstlisting}
+    \vspace{-5pt}
+\caption{PageRank in Green-Marl.}
+ \label{fig:pr_greenmarl}
+\end{figure}
+
+\begin{comment}
+\begin{figure}[t]
+\begin{lstlisting}
+Procedure PageRank(G: Graph, e,d: Double, 
+  PR: Node_Prop<Double>(G)) {
+  Int i = 0;
+  Double N = G.NumNodes();
+  G.PR = 1 / N; // Init PageRank #\label{code:pr:1}#
+  Do { // Main iteration         #\label{code:pr:2}#
+    diff = 0.0;
+    Foreach (t: G.Nodes) {       #\label{code:pr:3}#
+      Double val = (1-d) / N + d*Sum(w: t.InNbrs){ #\label{code:pr:4}#
+          w.PR / w.OutDegree()}; #\label{code:pr:5}#
+      t.PR <= val @ t;           #\label{code:pr:6}#
+      diff += | val - t.PR |; }  #\label{code:pr:7}#
+    i++;
+} While (i < 30); } #\label{code:pr:8}#
+\end{lstlisting}
+    \vspace{-10pt}
+\caption{PageRank in Green-Marl.}
+ \label{fig:pr_greenmarl}
+\end{figure}
+\end{comment}
+
+\begin{figure}[!t]
+\begin{lstlisting}
+Procedure bc_approx(G:Graph, BC:Node_Prop<Float>) {
+  G.BC = 0;   // Initialize BC as 0 per each node
+  Node_Prop<Float> sigma, delta;
+  G.sigma = 0;
+  Node s = G.PickRandom();   #\label{code:bc:1}# 
+  s.sigma = 1;
+  InBFS(v: G.Nodes From s) { // BFS-order traversal #\label{code:bc:2}#
+     // Summing over BFS parents
+     v.sigma = Sum(w:v.UpNbrs) { w.sigma }; } #\label{code:bc:3}#
+  }
+  InReverse { // Reverse-BFS order traversal  #\label{code:bc:4}#
+    v.delta =  // Summing over BFS children   
+       Sum (w:v.DownNbrs) {                   
+          v.sigma / w.sigma * (1+ w.delta) }; #\label{code:bc:5}#
+    v.BC += v.delta;  // accumulate delta into BC }
+\end{lstlisting}
+    \vspace{-5pt}
+\caption{Approximate Betweenness Centrality in Green-Marl.}
+ \label{fig:bc_greenmarl}
+\end{figure}
+
+\begin{comment}
+\begin{figure}[t]
+\begin{lstlisting}
+Procedure bc_approx(G:Graph, BC:Node_Prop<Float>) {
+  G.BC = 0;   // Initialize BC as 0 per each node
+  Node_Prop<Float> sigma, delta;
+  G.sigma = 0;
+  Node s = G.PickRandom();   #\label{code:bc:1}# 
+  s.sigma = 1;
+  InBFS(v: G.Nodes From s) { // BFS-order traversal #\label{code:bc:2}#
+     // Summing over BFS parents
+     v.sigma = Sum(w:v.UpNbrs) { w.sigma }; } #\label{code:bc:3}#
+  }
+  InReverse { // Reverse-BFS order traversal  #\label{code:bc:4}#
+    v.delta =  // Summing over BFS children   
+       Sum (w:v.DownNbrs) { v.sigma / w.sigma * (1+ w.delta) }; #\label{code:bc:5}#
+    v.BC += v.delta;  // accumulate delta into BC }
+\end{lstlisting}
+    \vspace{-10pt}
+\caption{Approximate Betweenness Centrality in Green-Marl.}
+ \label{fig:bc_greenmarl}
+\end{figure}
+\end{comment}
+For some graph computations, using GPS directly is the easiest way to program.
+However, sometimes it may be preferred to use a higher-level language.
+We have developed a compiler from the {\em Green-Marl} domain-specific language for graph processing into GPS \cite{hong:gm-to-gps-tech-report}.
+As examples, Figures \ref{fig:pr_greenmarl} and \ref{fig:bc_greenmarl} show the Green-Marl language being used to implement PageRank and ``Betweenness Centrality.''~\cite{brandes:bc}
+Both of these programs are translated easily to GPS using our compiler, although only the second algorithm truly benefits from using a high-level language instead of GPS.
+Here are two example general scenarios where users may prefer to use Green-Marl compiled to GPS, rather than implementing algorithms directly in GPS: 
+\begin{enumerate}
+\item When algorithms consist of a series of vertex-centric computations, programmers need to explicitly keep \break track of which stage is currently executing, by maintaining that information inside {\em vertex.compute()} and/or {\em master.compute()}.
+Green-Marl is a traditional imperative language, so computation sequences are simply written one after another.
+\item Even with the addition of {\em master.compute()}, some algorithms become very complex when implemented in a vertex-centric fashion---a classic example is contructing or doing a reverse traversal on a BFS tree.
+Green-Marl's high-level constructs can express some of these computations very easily, e.g., lines~\ref{code:bc:2} and~\ref{code:bc:4} in Figure~\ref{fig:bc_greenmarl}).
+% ,  such as doing a breadth-first-search (BFS) and reverse BFS traversals in a graph
+%\item For multi-stage algorithms, each stage may require a different vertex and message type.
+%As a result, the programmer has to combine multiple vertex and message types into a single vertex and a single message
+%type. Furthermore optimizing the vertex and message types for network communication and memory
+%usage requires a detailed understanding of the Pregel framework.
+% Implementing algorithms in Green-Marl, users do not have to write 
+%\item Different  stages of an algorithm may require different values of neighbors, all of which must be defined inside
+%a single message type. Optimizing such complex message types for network communication and memory
+%usage requires a detailed understanding of the Pregel framework. For algorithms written in Green-Marl, such optimizations
+%are instead done automatically by the Green-Marl compiler.
+%vertex, edge, and message values,
+%programmers define a single complex vertex, edge, and message type which must contain all possible values
+%required by the algorithm. Furthermore optimizing the vertex and message types for network communication and memory
+%usage requires a detailed understanding of the Pregel framework.
+%all the required fields that may 
+\end{enumerate}
+An additional advantage of Green-Marl is the automatic generation of ``boilerplate'' code required when programming with GPS, such as defining the serialization and deserialization methods for vertex, edge, and message types.
+
+We have implemented a compiler that handles a subset of Green-Marl programs, generating equivalent code that runs on GPS.
+Our initial experiments on a set of six representative algorithms have shown that
+the compiler-generated GPS programs perform comparably with direct GPS implementations in terms of run-time and network I//O.
+Further details of Green-Marl, our compiler from Green-Marl to GPS, and our performance experiments, can be found in~\cite{hong:gm-to-gps-tech-report}.
+
+% The description of exactly which Green-Marl programs are Pregel-canonical or can automatically be transformed into a Pregel-canonical one is beyond the scope of this paper. We note 
+%here that we have implemented all algorithms that appear in this paper, along with the algorithms from the original Pregel paper in Green-Marl and generated their GPS equivalents by our compiler. 
+%of direct GPS implementations and c on a set of algorithms.
+
+%initial experiments on six algorithms have
+%shown that direct GPS implementations of  and can be found in our tech report~\cite{green-marl-tech-report}
+%Implementing algorithms in Green-Marl and then automatically compiling to GPS has several advantages to implementing some algorithms directly 
+
+% programs need not be vertex-centric. Rather Green-Marl
+%programs can be described intuitively as a sequence of high-level global operations
+%such as random vertex access, reverse edge iteration, and (reverse) BFS traversal.
+
+% As we discuss below, writing some algorithms in Green-Marl is much simpler than natively in GPS. 
+
+%There are several advantages to using Green-Marl as an alternative to implementing bulk-synchronous message-passing 
+%algorithms directly. 
+%GPS's {\em master.compute()} extension simplifies writing algorithms that consist of
+%a combination of vertex-centric and global computations by decoupling global and vertex-centric computations. It also eliminates extra supersteps, which would be required to run global computations inside {\em vertex.compute()}. There are s
+%Two of the main challenges when implementing algorithms 

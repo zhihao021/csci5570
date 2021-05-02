@@ -1,0 +1,5 @@
+# Network I/O of different static partitioning of
+# sk_2005 graph of 50 iterations in minutes
+Random	-------   Domain -----   Metis-default-(c=1) ----	Metis-default-(c=4)  ----     Metis-all-balanced-(c=1) ---
+21.26	Random    11.0   Domain     0.78	Metis-default-(c=1)  1.49   Metis-default-(c=4)  1.55   Metis-all-balanced-(c=1)
+#21.26    11.0     0.78  1.49  1.55   

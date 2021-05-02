@@ -1,0 +1,25 @@
+reset
+cd '/Users/semihsalihoglu/Desktop/research/databases/gps/paper/charts/rw-charts'
+unset xtic
+set ytic 2
+set style data histogram
+set boxwidth 0.8
+set style histogram clustered gap 1.0 title offset character 0, 0, 0
+set style fill solid border -1
+set ylabel "Run time  (in minutes)"
+set xlabel "Initial number of walkers"
+set size ratio 0.6
+set yrange [0:30]
+#set terminal x11
+yoffset=0.03
+set xtics   ("50" 0.00000, "100" 1.00000, "200" 2.00000, "400" 3.00000, "600" 4.00000, "800" 5.00000)
+set terminal postscript eps color size 4,5
+set output 'uk_2007_60_machines_60_workers_rw_run_time_bar.eps'
+
+plot 'uk_2007_60_machines_60_workers_rw_run_time.dat' using 1 title col, '' using 0:1:2 with labels center offset first -1.15,graph yoffset notitle, \
+   '' using 3 title col, '' using 0:3:4 with labels center offset first -0.83,graph yoffset notitle
+#  '' using 5 title col, '' using 0:5:6 with labels center offset first -0.83,graph yoffset notitle, \
+#  '' using 7 title col, '' using 0:7:8 with labels center offset first -0.83,graph yoffset notitle, \
+#  '' using 9 title col, '' using 0:9:10 with labels center offset first -0.83,graph yoffset notitle, \
+#  '' using 11 title col, '' using 0:11:12 with labels center offset first -0.6,graph yoffset notitle 
+

@@ -1,0 +1,4 @@
+# Run-times of different static partitioning of
+# sk_2005 graph of 50 iterations in minutes
+Random  -------   Domain ---- Metis-default-(c=1) ----   Metis-balanced-(c=1) ---
+44.06   44.06m    27.2         27.2m         18.8          18.8m   17.7              17.7m

@@ -1,0 +1,32 @@
+# set title "50 iterations PageRank on 60 workers on 60 compute nodes"
+reset
+cd '/Users/semihsalihoglu/Desktop/research/databases/gps/paper/charts/imbalance-charts'
+set boxwidth 0.9 absolute
+set style fill solid 1.00 border lt -1
+unset xtic
+#set xtics   ("Random" 0.00000, "Domain" 1.0, "Metis-default (c=1)" 2.0, "Metis-default (c=4)"  3.0, "Metis-balanced" 4.0) rotate by -45
+set ytic 3
+set style data histogram
+set style histogram cluster gap 1
+set style fill solid border -1
+set ylabel "Network I/O (in GB)
+set size ratio 1.2
+#set size 1.0,1.2
+set yrange [0:26]
+#set terminal x11
+yoffset=0.04
+unset multiplot
+set terminal postscript eps color size 4,5
+set output 'sk_2005_60_machines_60_workers_network_io.eps'
+#plot 'sk_2005_60_machines_60_workers_network_io.dat' u 1 notitle
+
+plot 'sk_2005_60_machines_60_workers_network_io.dat' u 1 title column, '' u 3 title column, '' u 5 title column, '' u 7 title column, '' u 9 title column
+
+#plot \
+#'sk_2005_60_machines_60_workers_network_io.dat' using 1 notitle, \
+#'' using 0:1:2 with labels font ",14" rotate by 45 center offset first -0.30,graph yoffset notitle,  \
+#'' using 3 notitle, '' using 0:3:4 with labels font ",14" rotate by 45 center offset first -0.14,graph yoffset notitle,\
+#'' using 5 notitle, '' using 0:5:6 with labels font ",14" rotate by 45 center offset first 0.18,graph 0.12 notitle,\
+#'' using 7 notitle, '' using 0:7:8 with labels font ",14" rotate by 45 center offset first 0.2,graph yoffset notitle,\
+#'' using 9 notitle, '' using 0:9:10 with labels font ",14" rotate by 45 center offset first 0.4, graph yoffset notitle
+

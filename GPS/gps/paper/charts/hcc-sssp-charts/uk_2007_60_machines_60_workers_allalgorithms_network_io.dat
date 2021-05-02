@@ -1,0 +1,8 @@
+# Network I/O of Metis-all-balanced and random partitioning of
+# uk_2007 graph for running pagerank, hcc, sssp. Hcc and ssp
+# network I/O are the total across all supersteps, PageRank 
+# network I/O is per superstep.
+Random	-------  Metis-all-balanced ---
+72.7    72.7GB      5.1               5.1GB
+129.4   129.4GB     7.5               7.5GB
+48.3	48.3GB    1.7		    1.7GB

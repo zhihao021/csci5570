@@ -1,0 +1,144 @@
+% THIS IS AN EXAMPLE DOCUMENT FOR VLDB 2012
+% based on ACM SIGPROC-SP.TEX VERSION 2.7
+% Modified by  Gerald Weber <gerald@cs.auckland.ac.nz>
+% Removed the requirement to include *bbl file in here. (AhmetSacan, Sep2012)
+% Fixed the equation on page 3 to prevent line overflow. (AhmetSacan, Sep2012)
+
+\documentclass{vldb}
+%\usepackage{subfigure}
+%\usepackage{blindtext, stfloats, overpic, subfig}
+
+\usepackage{graphicx}
+\usepackage{balance}  % for  \balance command ON LAST PAGE  (only there!)
+\usepackage{verbatim}
+\usepackage{listings}
+\newtheorem{example}{Example}[section]
+
+\usepackage{caption}
+\DeclareCaptionType{copyrightbox}
+\usepackage[lofdepth,lotdepth]{subfig}
+
+\usepackage{color}
+\lstset{
+  language=java,
+  morekeywords={Foreach, Node, Nbrs, OutNbrs, InNbrs, Graph, If, Sum, Graph, Node\_Prop, Nodes},
+  morekeywords={Else, Count, Degree, Inf, Product, INF, Bool, Edge\_Prop, N\_P, E\_P},
+  morekeywords={UpNbrs, DownNbrs, From, InBFS, InRBFS, Float, Int, Procedure},
+  morekeywords={Double, OutDegree, Do, While, For, Return, InReverse, Items},
+  morekeywords={InDFS, InPost, Node\_Order, Node\_Set, Node\_Seq, PushFront, 
+      max=, min=, Edge, NumEdges, NumNodes, GetEdge},
+  morekeywords={True,False,InDegree,NumNodes, NumEdgss, InNbrs},
+  basicstyle=\fontsize{8}{10}\selectfont,
+  % \selectfont\tt
+  frame=lines,
+  keepspaces=true,
+  columns=fullflexible,
+  keywordstyle=\color{blue},
+  numbers=left, 
+%  numberstyle=\footnotesize,
+  commentstyle=\itshape,
+  columns=flexible,
+  xleftmargin=0.0in,
+  firstnumber=auto,
+  emph={ }, emphstyle=\itshape,
+  escapechar=\#
+}
+
+\newcommand{\squishlist}{
+  \begin{list}{$\bullet$}
+   {
+     \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{3pt}
+     \setlength{\topsep}{3pt}
+     \setlength{\partopsep}{0pt}
+     \setlength{\leftmargin}{1.5em}
+     \setlength{\labelwidth}{1em}
+     \setlength{\labelsep}{0.5em} } }
+
+\setlength{\textfloatsep}{7pt plus 1.0pt minus 1.0pt}
+
+\begin{document}
+
+% ****************** TITLE ****************************************
+
+\title{GPS: A Graph Processing System\thanks{This work was supported by the National Science Foundation (IIS-0904497), a KAUST research grant, and a research grant from Amazon Web Services.}}
+
+% possible, but not really needed or used for PVLDB:
+%\subtitle{[Extended Abstract]
+%\titlenote{A full version of this paper is available as\textit{Author's Guide to Preparing ACM SIG Proceedings Using \LaTeX$2_\epsilon$\ and BibTeX} at \texttt{www.acm.org/eaddress.htm}}}
+
+% ****************** AUTHORS **************************************
+
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{2} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+\author{
+\alignauthor
+Semih Salihoglu\\
+       \affaddr{Stanford University}\\
+%       \affaddr{1932 Wallamaloo Lane}\\
+%       \affaddr{Wallamaloo, New Zealand}\\
+       \email{semih@cs.stanford.edu}
+% 2nd. author
+\alignauthor
+Jennifer Widom\\
+       \affaddr{Stanford University}\\
+%       \affaddr{P.O. Box 1212}\\
+%       \affaddr{Dublin, Ohio 43017-6221}\\
+       \email{widom@cs.stanford.edu}
+%\alignauthor
+%Semih Salihoglu and Jennifer Widom\\[2mm]
+%       Stanford University\\[1mm]
+%       {\tt \{semih,widom\}@cs.stanford.edu}
+}
+
+\maketitle
+
+\input{../abstract/2/abstract_2_raw}
+\vspace{-7pt}
+ \input{../introduction/7/introduction_7_raw}
+\vspace{-7pt}
+\input{../system/4/system_4_raw}
+\vspace{-7pt}
+\input{../static-partitioning/6/static_partitioning_6_raw}
+\vspace{-7pt}
+\input{../dynamic-partitioning/4/dynamic_partitioning_4_raw}
+\vspace{-7pt}
+\input{../other-optimizations/1/other_optimizations_1_raw}
+\vspace{-7pt}
+\input{../green-marl/green_marl_raw}
+\vspace{-7pt}
+\input{../related-work/3/related_work_3_raw}
+\vspace{-7pt}
+\input{../future-work/2/future_work_2_raw}
+\vspace{-7pt}
+\input{../acknowledgements/1/acknowledgements_1_raw}
+\balance
+\bibliographystyle{abbrv}
+\bibliography{../gps_vldb}  % vldb_sample.bib is the name of the Bibliography in this case
+
+\end{document}

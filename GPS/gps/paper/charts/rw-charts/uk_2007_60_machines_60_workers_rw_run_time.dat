@@ -1,0 +1,10 @@
+# Run time comparison of Metis-all-balanced and random partitioning of
+# uk_2007 graph for running rw for 20 supersteps with different number
+# of initial walkers.
+Random	-------  Metis-all-balanced ---
+8.4     8.4m        5.2             5.2m
+10.25   10.25m      7.0             7.0m
+12.9	12.9m       9.03            9.03m
+17.4	17.4m	    13.8	    13.8m
+20.8	20.8m	    18.3	    18.3m
+24.2	24.2m	    22.8	    22.8m

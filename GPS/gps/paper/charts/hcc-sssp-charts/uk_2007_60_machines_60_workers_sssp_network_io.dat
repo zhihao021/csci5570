@@ -1,0 +1,4 @@
+# Network I/O of Metis-all-balanced and random partitioning of
+# uk_2007 graph for running sssp
+Random	-------  Metis-all-balanced ---
+48.3	48.3GB    1.7		    1.7GB

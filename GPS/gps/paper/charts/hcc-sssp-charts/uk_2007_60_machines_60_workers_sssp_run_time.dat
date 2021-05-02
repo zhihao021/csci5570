@@ -1,0 +1,4 @@
+# Run time of Metis-all-balanced and random partitioning of
+# uk_2007 graph for running sssp
+Random	-------  Metis-all-balanced ---
+258	258s    234s		    234s

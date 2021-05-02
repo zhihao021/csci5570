@@ -1,0 +1,16 @@
+reset
+cd '/Users/semihsalihoglu/Desktop/research/databases/gps/paper/charts/dynamism-charts'
+unset xtic
+set ytic 2
+set xtic 1
+set ylabel "Network I/O  (in GB)"
+set xlabel "Superstep no"
+set size ratio 1.2
+set yrange [0:24]
+#set terminal x11
+set terminal postscript eps color size 4,5
+set output 'sk_2005_30_machines_60_workers_dynamic_network_io_per_superstep.eps'
+
+plot 'sk_2005_30_machines_60_workers_dynamic_network_io.dat' using 1:2 with lines lt 1 linecolor rgb "red" title col,\
+     'sk_2005_30_machines_60_workers_dynamic_network_io.dat' using 1:3 with lines lt 1 linecolor rgb "blue" title col
+

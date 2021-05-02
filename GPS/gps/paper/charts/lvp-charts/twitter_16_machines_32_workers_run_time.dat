@@ -1,0 +1,4 @@
+# Run-times of different tau values for large-vertex-partitioning 
+# of the twitter graph.
+no-lvp  -------  tau=100K ----    tau=10K    ----     tau=1K      ---      tau=500      ---      tau=250    ----
+51.4   51.4m      45.6 45.6m   44.5   44.5m   38.2    38.2m    37.0     37.0m    35.1   35.1m

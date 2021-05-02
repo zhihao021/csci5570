@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+  <property>
+    <name>hive.execution.engine</name>
+    <value>spark</value>
+  </property>
+
+  <!-- Metastore Configs -->
+
+  <property>
+    <name>hive.metastore.warehouse.dir</name>
+    <value>hdfs://proj10:9090/data/hive/warehouse</value>
+    <description>location of default database for the warehouse</description>
+  </property>
+
+  <property>
+    <name>hive.metastore.uris</name>
+    <value>thrift://proj10:9081</value>
+    <description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
+  </property>
+
+  <property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql:///hive?createDatabaseIfNotExist=true</value>
+   </property>
+
+	<property>
+			<name>javax.jdo.option.ConnectionDriverName</name>
+			<value>com.mysql.jdbc.Driver</value>
+			<description>Driver class name for a JDBC metastore</description>
+	 </property>
+
+	 <property>
+			<name>javax.jdo.option.ConnectionUserName</name>
+			<value>tati</value>
+			<description>username to use against metastore database</description>
+	 </property>
+
+	 <property>
+			<name>javax.jdo.option.ConnectionPassword</name>
+			<value>tati</value>
+			<description>password to use against metastore database</description>
+	 </property>
+
+  <!-- Data Storage Configs -->
+
+  <property>
+    <name>fs.defaultFS</name>
+    <value>hdfs://proj10:9090</value>
+  </property>
+
+</configuration>
